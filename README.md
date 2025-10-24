@@ -72,3 +72,9 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
 - đã hiểu cách frond-end tương tác với back-end ra sao?
 
 # <p align="center">BÀI LÀM</p>
+
+
+
+
+
+# <p align="center">*--- THE END ---*</p>
