@@ -72,9 +72,81 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
 - đã hiểu cách frond-end tương tác với back-end ra sao?
 
 # <p align="center">BÀI LÀM</p>
+### 2.1 Cài đặt Apache web server:
+ Vô hiệu hoá IIS: Nếu IIS đang chạy thì mở Command Prompt Run as Administrator để chạy lệnh: `iisreset /stop`
+<img width="1105" height="273" alt="image" src="https://github.com/user-attachments/assets/7f1baa36-55e9-47bd-805a-48447d44f939" />
+➡️ Kết quả đã vô hiệu hóa IIS thành công ✅
 
+2. Download apache server, giải nén ra ổ D, cấu hình các file:
 
+Truy cập trang chính thức (Windows build): ➡️ https://www.apachelounge.com/download/ Tải phiên bản mới nhất
+<img width="1091" height="372" alt="image" src="https://github.com/user-attachments/assets/73cf3821-82ba-4b86-9ecf-e52e4e109caa" />
+Giải nén File Zip ra ổ E.
+<img width="1917" height="1015" alt="Ảnh chụp màn hình 2025-10-25 093302" src="https://github.com/user-attachments/assets/3a9bb032-57a1-429a-b663-d7ed386afb73" />
+Mở theo đường dẫn E:\Apache24\conf\httpd.conf để sửa:
+- Bật cấu hình VirtualHost tìm dòng: `#Include conf/extra/httpd-vhosts.conf` ➡️ Bỏ dấu # đi để Apache nạp file vhost
+- Đặt ServerName mặc định tìm và thêm (hoặc sửa): `ServerName localhost:80`
+- Đảm bảo có dòng DirectoryIndex: `DirectoryIndex index.html index.php`
 
+Mở theo đường dẫn E:Apache24\conf\extra\httpd-vhosts.conf 
+- Xóa bỏ nội dung cũ và thêm nôi dung mới như sau  lưu file:
+```
+# Virtual Host cho nguyenvanthu.com
+<VirtualHost *:80>
+    ServerAdmin webmaster@nguyenvanthu.com
+    DocumentRoot "D:/Apache24/nguyenvanthu"
+    ServerName nguyenvanthu.com
+    ServerAlias www.nguyenvanthu.com
+    ErrorLog "logs/nguyenvanthu-error.log"
+    CustomLog "logs/nguyenvanthu-access.log" common
 
+    <Directory "D:/Apache24/nguyenvanthu">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+Tạo thư mục web & file test
+- Tạo thư mục: E:\Apache24\nguyenvanthu
+- Tạo file index.html với nội
+```<!DOCTYPE html>
+<html>
+<head><title>Website nguyenvanthu.com</title></head>
+<body>
+<h1>Chao mung den voi website nguyenvanthu.com!</h1>
+</body>
+</html>
+```
+Cấu hình file hosts trong Windows
+- Mở file: `C:\Windows\System32\drivers\etc\hosts` bằng Notepad với quyền Administrator. Thêm 2 dòng sau vào cuối file Hosts để Fake Domain: `127.0.0.1   nguyenvanthu.com` & `127.0.0.1   www.nguyenvanthu.com` ➡️ Sau đó Lưu lại✅
+<img width="1172" height="733" alt="Ảnh chụp màn hình 2025-10-25 113740" src="https://github.com/user-attachments/assets/d6612c7c-315b-4473-bca9-681eec95c93e" />
 
+- Sau đó mở Command Prompt Run as Administrator gõ `ping nguyenvanthu.com` kết quả thông như hình
+<img width="1102" height="611" alt="Ảnh chụp màn hình 2025-10-25 113300" src="https://github.com/user-attachments/assets/be02fa66-281a-455f-9464-6c4f2cb76a6d" />
+
+- Khởi động lại Apache mở CMD (Run as Administrator) và chạy lần lượt các lệnh sau: `cd D:\Apache24\bin` & `httpd -k restart` 
+<img width="1103" height="136" alt="Ảnh chụp màn hình 2025-10-25 113333" src="https://github.com/user-attachments/assets/e786af34-f550-4c98-8db1-f56684f6d89e" />
+
+- Kiểm tra hoạt động mở trình duyệt và truy cập: ➡️ http://nguyenvanthu.com. Nếu thấy hiện dòng “Chao mung den voi website nguyenvanthu.com!”, nghĩa là bạn đã cấu hình thành công ✅
+<img width="1918" height="372" alt="Ảnh chụp màn hình 2025-10-25 111910" src="https://github.com/user-attachments/assets/ec939777-9d57-430a-8726-db567aeba49b" />
+
+### 2.2. Cài đặt nodejs và nodered => Dùng làm backend:
+- Cài đặt nodejs:
+  + download file `https://nodejs.org/dist/v20.19.5/node-v20.19.5-x64.msi`  (đây ko phải bản mới nhất, nhưng ổn định)
+  + cài đặt vào thư mục `D:\nodejs`
+- Cài đặt nodered:
+  + chạy cmd, vào thư mục `D:\nodejs`, chạy lệnh `npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"`
+  + download file: https://nssm.cc/release/nssm-2.24.zip
+    giải nén được file nssm.exe
+    copy nssm.exe vào thư mục `D:\nodejs\nodered\`
+  + tạo file "D:\nodejs\nodered\run-nodered.cmd" với nội dung (5 dòng sau):
+@echo off
+REM fix path
+set PATH=D:\nodejs;%PATH%
+REM Run Node-RED
+node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work" %*
+  + mở cmd, chuyển đến thư mục: `D:\nodejs\nodered`
+  + cài đặt service `a1-nodered` bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd"
+  + chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
 # <p align="center">*--- THE END ---*</p>
