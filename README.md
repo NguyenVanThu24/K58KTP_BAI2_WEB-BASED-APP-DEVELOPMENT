@@ -1,4 +1,4 @@
-<img width="1100" height="434" alt="image" src="https://github.com/user-attachments/assets/21b6b12f-8c9d-4444-8a2e-ba0ae1a3dcff" /># Thông tin cá nhân:
+# Thông tin cá nhân
 ### Họ và tên: Nguyễn Văn Thứ   
 ### MSSV: K225480106062   
 ### Lớp: K58KTP
@@ -158,7 +158,7 @@ Kiểm tra cài đặt nodes thành công ✅ với các version như hình:
 Chạy CMD (Run as Administrator), di chuyển vào thư mục `E:\nodejs`, chạy lệnh `npm install -g --unsafe-perm node-red --prefix "E:\nodejs\nodered"` để tiến hành cài đặt
 <img width="1100" height="439" alt="Ảnh chụp màn hình 2025-10-25 121400" src="https://github.com/user-attachments/assets/44fd8854-c806-4a28-9726-89488d328dc0" />
 ➡️Cài đặt thành công ✅
-#### 3. Cài NSSM (dùng để tạo Service windows)
+#### 3. Cài NSSM (dùng để tạo Service windoatt:
 Download file: `https://nssm.cc/release/nssm-2.24.zip` ➡️ giải nén được file `nssm.exe` ➡️ copy `nssm.exe` vào thư mục `E:\nodejs\nodered\`
 <img width="1918" height="507" alt="Ảnh chụp màn hình 2025-10-25 122642" src="https://github.com/user-attachments/assets/3caf6fc1-5a27-4e2b-bb7a-1c7a06c0acad" />
 Tạo file `"E:\nodejs\nodered\run-nodered.cmd"` với nội dung (5 dòng sau):
@@ -171,10 +171,8 @@ node "E:\nodejs\nodered\node_modules\node-red\red.js" -u "E:\nodejs\nodered\work
 ```
 <img width="1917" height="652" alt="Ảnh chụp màn hình 2025-10-25 124009" src="https://github.com/user-attachments/assets/b5adceaf-f61c-4805-b276-c4b656e3233b" />
 Mở cmd, chuyển đến thư mục: `E:\nodejs\nodered`
-<img width="1100" height="434" alt="Ảnh chụp màn hình 2025-10-25 124244" src="https://github.com/user-attachments/assets/a0c9d9a3-a484-4c08-84d4-f015d58b4877" />
 
-Cài đặt service `a1-nodered` bằng lệnh: nssm.exe install a1-nodered "E:\nodejs\nodered\run-nodered.cmd"
-Chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
+Cài đặt service `a1-nodered` bằng lệnh: `nssm.exe install a1-nodered "E:\nodejs\nodered\run-nodered.cmd"`. Chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
 <img width="1097" height="317" alt="Ảnh chụp màn hình 2025-10-25 124112" src="https://github.com/user-attachments/assets/e5230422-cdde-49b0-8b72-6020a3fee880" />
 ➡️Cài đặt thành công✅
 ### 2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name
