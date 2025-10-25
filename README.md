@@ -170,12 +170,21 @@ REM Run Node-RED
 node "E:\nodejs\nodered\node_modules\node-red\red.js" -u "E:\nodejs\nodered\work" %*
 ```
 <img width="1917" height="652" alt="Ảnh chụp màn hình 2025-10-25 124009" src="https://github.com/user-attachments/assets/b5adceaf-f61c-4805-b276-c4b656e3233b" />
-Mở cmd, chuyển đến thư mục: `E:\nodejs\nodered`
+Mở cmd, chuyển đến thư mục: E:\nodejs\nodered
 
-Cài đặt service `a1-nodered` bằng lệnh: `nssm.exe install a1-nodered "E:\nodejs\nodered\run-nodered.cmd"`. Chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
+- Cài đặt service `a1-nodered` bằng lệnh: `nssm.exe install a1-nodered "E:\nodejs\nodered\run-nodered.cmd"`.
+- Chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
 <img width="1097" height="317" alt="Ảnh chụp màn hình 2025-10-25 124112" src="https://github.com/user-attachments/assets/e5230422-cdde-49b0-8b72-6020a3fee880" />
-➡️Cài đặt thành công✅
+➡️Cài đặt thành công Node-Red chạy ở http://localhost:1880✅
+<img width="1917" height="1078" alt="Ảnh chụp màn hình 2025-10-25 130714" src="https://github.com/user-attachments/assets/8746d680-9e46-4718-b9f1-7a824cd92ec6" />
+
 ### 2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name
+Xây dựng cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm của hệ thống. Hệ thống mô phỏng mô hình bán nhà Online và có magn theo các thông tin cơ bản nhất.
+- Tạo DB Name: RealEstateHome
+- Tabel Name: NgươiDung, BatDongSan, LoaiBatDongSan, HinhAnh, LienHe.
+- Server Name: nguyenvanthu\ 127.0.0.1
+- Port: 1433 (Cổng mặc định)
+<img width="1018" height="735" alt="Ảnh chụp màn hình 2025-10-25 135232" src="https://github.com/user-attachments/assets/5f5d4e84-93fc-4969-8943-469bf097643a" />
 
 ### 2.4. Cài đặt thư viện trên nodered:
 truy cập giao diện nodered bằng url: http://localhost:1880
