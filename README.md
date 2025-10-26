@@ -187,19 +187,41 @@ Xây dựng cơ sở dữ liệu được thiết kế nhằm lưu trữ và qu�
 <img width="1018" height="735" alt="Ảnh chụp màn hình 2025-10-25 135232" src="https://github.com/user-attachments/assets/5f5d4e84-93fc-4969-8943-469bf097643a" />
 
 ### 2.4. Cài đặt thư viện trên nodered:
-truy cập giao diện nodered bằng url: http://localhost:1880
-cài đặt các thư viện: node-red-contrib-mssql-plus, node-red-node-mysql, node-red-contrib-telegrambot, node-red-contrib-moment, node-red-contrib-influxdb, node-red-contrib-duckdns, node-red-contrib-cron-plus
-Sửa file D:\nodejs\nodered\work\settings.js : tìm đến chỗ adminAuth, bỏ comment # ở đầu dòng (8 dòng), thay chuỗi mã hoá mật khẩu bằng chuỗi mới
+Truy cập giao diện nodered bằng url: `http://localhost:1880` trên trình duyệt. Nếu đã cài service `a1-nodered` sẽ có giao diện flow editor.
+<img width="1915" height="1079" alt="Ảnh chụp màn hình 2025-10-25 123351" src="https://github.com/user-attachments/assets/16c8c57e-6566-4e35-8c24-30ca0bf7d81a" />
+
+Cài đặt các thư viện cần thiết: Tại giao diện Node-RED ➡️ Vào Menu ➡️ Manage palette ➡️ Install tiến hành cài đặt lần lượt theo các thư viện bên dưới.
+```
+node-red-contrib-mssql-plus
+node-red-node-mysql
+node-red-contrib-telegrambot
+node-red-contrib-moment
+node-red-contrib-influxdb
+node-red-contrib-duckdns
+node-red-contrib-cron-plus
+```
+<img width="1918" height="1079" alt="Ảnh chụp màn hình 2025-10-26 124652" src="https://github.com/user-attachments/assets/d6c51972-0493-435c-85ba-a013d2cc7480" />
+➡️ Cài đặt thành công các thư viện ✅<br>  
+Cấu hình tài khoản đăng nhập (adminAuth) mở file `E:\nodejs\nodered\work\settings.js` tìm đến chỗ adminAuth, bỏ comment `//` ở đầu dòng (8 dòng), thay chuỗi mã hoá mật khẩu bằng chuỗi mới.
+<img width="1168" height="366" alt="Ảnh chụp màn hình 2025-10-26 131127" src="https://github.com/user-attachments/assets/19369010-a91a-451e-ac41-697adb1c763f" />
+
+```
 adminAuth: {
       type: "credentials",
       users: [{
           username: "admin",
-          password: "chuỗi_mã_hoá_mật_khẩu",
+          password: "chuoi_ma_hoa_mat_khau",
           permissions: "*"
       }]
   },
-với mã hoá mật khẩu có thể thiết lập bằng tool: https://tms.tnut.edu.vn/pw.php
-chạy lại nodered bằng cách: mở cmd, vào thư mục D:\nodejs\nodered và chạy lệnh nssm restart a1-nodered khi đó nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: http://localhost:1880
+```
+
+Truy cập tool: https://tms.tnut.edu.vn/pw.php ➡️ Nhập password:  `chuoimahoamatkhau` vào ô và click Hash Password ➡️ Copy chuỗi mã hóa dán vào chỗ "chuoi_ma_hoa_mat_khau" và lưu file.
+<img width="1163" height="365" alt="Ảnh chụp màn hình 2025-10-26 151840" src="https://github.com/user-attachments/assets/acf6df0c-661e-4126-8b12-f69b03a13a30" />
+
+Khởi động lại Node-RED bằng cách: mở cmd, vào thư mục `E:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered` 
+
+Khi đó nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: `http://localhost:1880`
 
 ### 2.5. tạo api back-end bằng nodered:
 tại flow1 trên nodered, sử dụng node http in và http response để tạo api
