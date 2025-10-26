@@ -217,11 +217,13 @@ adminAuth: {
 ```
 
 Truy cập tool: https://tms.tnut.edu.vn/pw.php ➡️ Nhập password:  `chuoimahoamatkhau` vào ô và click Hash Password ➡️ Copy chuỗi mã hóa dán vào chỗ "chuoi_ma_hoa_mat_khau" và lưu file.
-<img width="1163" height="365" alt="Ảnh chụp màn hình 2025-10-26 151840" src="https://github.com/user-attachments/assets/acf6df0c-661e-4126-8b12-f69b03a13a30" />
+<img width="1160" height="361" alt="image" src="https://github.com/user-attachments/assets/825d8409-25e1-4bd1-98db-3eff907e89b2" />
 
 Khởi động lại Node-RED bằng cách: mở cmd, vào thư mục `E:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered` 
+<img width="1100" height="261" alt="Ảnh chụp màn hình 2025-10-26 153114" src="https://github.com/user-attachments/assets/bee395de-20bd-4b36-a5f9-1efa9842f6a9" />
 
-Khi đó nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: `http://localhost:1880`
+Lúc này Node-RED sẽ yêu cầu đăng nhập bằng user admin và password mới vào được giao diện cho admin tại: `http://localhost:1880`
+<img width="1916" height="1078" alt="Ảnh chụp màn hình 2025-10-26 153151" src="https://github.com/user-attachments/assets/342cdbb8-1b82-458b-b619-c732ba6e3e5a" />
 
 ### 2.5. tạo api back-end bằng nodered:
 tại flow1 trên nodered, sử dụng node http in và http response để tạo api
