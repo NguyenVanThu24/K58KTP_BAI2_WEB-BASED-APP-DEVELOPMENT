@@ -179,7 +179,7 @@ Mở cmd, chuyển đến thư mục: E:\nodejs\nodered
 <img width="1917" height="1078" alt="Ảnh chụp màn hình 2025-10-25 130714" src="https://github.com/user-attachments/assets/8746d680-9e46-4718-b9f1-7a824cd92ec6" />
 
 ### 2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name
-Xây dựng cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm của hệ thống. Hệ thống mô phỏng mô hình bán nhà Online và có magn theo các thông tin cơ bản nhất.
+#### - Xây dựng cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm của hệ thống. Hệ thống mô phỏng mô hình bán nhà Online và có magn theo các thông tin cơ bản nhất. ####
 - Tạo DB Name: RealEstateHome
 - Tabel Name: NgươiDung, BatDongSan, LoaiBatDongSan, HinhAnh, LienHe.
 - Server Name: nguyenvanthu\ 127.0.0.1
@@ -187,10 +187,10 @@ Xây dựng cơ sở dữ liệu được thiết kế nhằm lưu trữ và qu�
 <img width="1018" height="735" alt="Ảnh chụp màn hình 2025-10-25 135232" src="https://github.com/user-attachments/assets/5f5d4e84-93fc-4969-8943-469bf097643a" />
 
 ### 2.4. Cài đặt thư viện trên nodered:
-Truy cập giao diện nodered bằng url: `http://localhost:1880` trên trình duyệt. Nếu đã cài service `a1-nodered` sẽ có giao diện flow editor.
+#### - Truy cập giao diện nodered bằng url: `http://localhost:1880` trên trình duyệt. Nếu đã cài service `a1-nodered` sẽ có giao diện flow editor. ####
 <img width="1915" height="1079" alt="Ảnh chụp màn hình 2025-10-25 123351" src="https://github.com/user-attachments/assets/16c8c57e-6566-4e35-8c24-30ca0bf7d81a" />
 
-Cài đặt các thư viện cần thiết: Tại giao diện Node-RED ➡️ Vào Menu ➡️ Manage palette ➡️ Install tiến hành cài đặt lần lượt theo các thư viện bên dưới.
+#### - Cài đặt các thư viện cần thiết: Tại giao diện Node-RED ➡️ Vào Menu ➡️ Manage palette ➡️ Install tiến hành cài đặt lần lượt theo các thư viện bên dưới. ####
 ```
 node-red-contrib-mssql-plus
 node-red-node-mysql
@@ -201,8 +201,9 @@ node-red-contrib-duckdns
 node-red-contrib-cron-plus
 ```
 <img width="1918" height="1079" alt="Ảnh chụp màn hình 2025-10-26 124652" src="https://github.com/user-attachments/assets/d6c51972-0493-435c-85ba-a013d2cc7480" />
-➡️ Cài đặt thành công các thư viện ✅<br>  
-Cấu hình tài khoản đăng nhập (adminAuth) mở file `E:\nodejs\nodered\work\settings.js` tìm đến chỗ adminAuth, bỏ comment `//` ở đầu dòng (8 dòng), thay chuỗi mã hoá mật khẩu bằng chuỗi mới.
+➡️ Cài đặt thành công các thư viện ✅
+
+#### - Cấu hình tài khoản đăng nhập (adminAuth) mở file `E:\nodejs\nodered\work\settings.js` tìm đến chỗ adminAuth, bỏ comment `//` ở đầu dòng (8 dòng), thay chuỗi mã hoá mật khẩu bằng chuỗi mới. ####
 <img width="1168" height="366" alt="Ảnh chụp màn hình 2025-10-26 131127" src="https://github.com/user-attachments/assets/19369010-a91a-451e-ac41-697adb1c763f" />
 
 ```
@@ -216,33 +217,72 @@ adminAuth: {
   },
 ```
 
-Truy cập tool: https://tms.tnut.edu.vn/pw.php ➡️ Nhập password:  `chuoimahoamatkhau` vào ô và click Hash Password ➡️ Copy chuỗi mã hóa dán vào chỗ "chuoi_ma_hoa_mat_khau" và lưu file.
+#### - Truy cập tool: https://tms.tnut.edu.vn/pw.php ➡️ Nhập password:  `chuoimahoamatkhau` vào ô và click Hash Password ➡️ Copy chuỗi mã hóa dán vào chỗ "chuoi_ma_hoa_mat_khau" và lưu file. ####
 <img width="1160" height="361" alt="image" src="https://github.com/user-attachments/assets/825d8409-25e1-4bd1-98db-3eff907e89b2" />
 
-Khởi động lại Node-RED bằng cách: mở cmd, vào thư mục `E:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered` 
+#### - Khởi động lại Node-RED bằng cách: mở cmd, vào thư mục `E:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered` ####
 <img width="1100" height="261" alt="Ảnh chụp màn hình 2025-10-26 153114" src="https://github.com/user-attachments/assets/bee395de-20bd-4b36-a5f9-1efa9842f6a9" />
 
-Lúc này Node-RED sẽ yêu cầu đăng nhập bằng user admin và password mới vào được giao diện cho admin tại: `http://localhost:1880`
+#### - Lúc này Node-RED sẽ yêu cầu đăng nhập bằng user admin và password mới vào được giao diện cho admin tại: `http://localhost:1880` ####
 <img width="1916" height="1078" alt="Ảnh chụp màn hình 2025-10-26 153151" src="https://github.com/user-attachments/assets/342cdbb8-1b82-458b-b619-c732ba6e3e5a" />
 
 ### 2.5. tạo api back-end bằng nodered:
-tại flow1 trên nodered, sử dụng node http in và http response để tạo api
-thêm node MSSQL để truy vấn tới cơ sở dữ liệu
-logic flow sẽ gồm 4 node theo thứ tự sau (thứ tự nối dây):
-http in : dùng GET cho đơn giản, URL đặt tuỳ ý, ví dụ: /timkiem
-function : để tiền xử lý dữ liệu gửi đến
-MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ node tiền xử lý
-http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json có thể thêm node debug để quan sát giá trị trung gian.
-test api thông qua trình duyệt, ví dụ: http://localhost:1880/timkiem?q=thị
+#### Tạo API tìm kiếm nhà nhận tham số từ url trả về json `http://localhost:1880/timkiem?q=chung` ####
+- Khi gọi, Node-RED sẽ truy vấn bảng BatDongSan trong SQL Server
+- Trả về dữ liệu dạng JSON (danh sách nhà phù hợp với từ khóa tìm kiếm).
+- Trên Nodered, ở flow 1 sử dụng http in và http response để tạo api
+- Thêm node MSSQL để kết nối và truy vấn tới cơ sở dữ liệu
+- Logic Flow sẽ gồm 4 node sau (thứ tự nối dây):
+
+#### Cấu hình từng node trong Node-RED ####
+#### - http in : dùng GET cho đơn giản, URL đặt tuỳ ý, ví dụ: /timkiem ####
+<img width="648" height="809" alt="Ảnh chụp màn hình 2025-10-26 155344" src="https://github.com/user-attachments/assets/64467428-64f9-463e-a6db-0dc9b302993a" />
+
+#### - function : để tiền xử lý dữ liệu gửi đến ####
+<img width="820" height="810" alt="Ảnh chụp màn hình 2025-10-26 155532" src="https://github.com/user-attachments/assets/3bc390b3-0783-4ee2-be5c-2d26874e7969" />
+
+#### - MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ node tiền xử lý ####
+<img width="656" height="808" alt="Ảnh chụp màn hình 2025-10-26 160314" src="https://github.com/user-attachments/assets/aedfcfc5-57e9-4556-8023-c46ed963bf1a" />
+<img width="649" height="807" alt="Ảnh chụp màn hình 2025-10-26 160452" src="https://github.com/user-attachments/assets/bbb19aa7-58d5-4cfd-9e30-b7b75afa11ce" />
+
+#### - http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json ####
+<img width="647" height="809" alt="Ảnh chụp màn hình 2025-10-26 160805" src="https://github.com/user-attachments/assets/11a87db4-f9af-49de-8496-351e52c393a3" />
+
+#### - Có thể thêm node debug để quan sát giá trị trung gian ####
+<img width="645" height="805" alt="Ảnh chụp màn hình 2025-10-26 160935" src="https://github.com/user-attachments/assets/3df4588d-1628-4e27-9663-c4793aed923f" />
+
+#### - Logic Flow sẽ gồm 5 node sau (thứ tự nối dây) ####
+<img width="1913" height="1079" alt="Ảnh chụp màn hình 2025-10-26 180512" src="https://github.com/user-attachments/assets/d7e8780f-85d4-4df6-849e-0b3549519df0" />
+
+#### - Test api thông qua trình duyệt, ví dụ: http://localhost:1880/timkiem?q=Hồ%20Chis%20Minh ####
+<img width="1918" height="1079" alt="Ảnh chụp màn hình 2025-10-26 180002" src="https://github.com/user-attachments/assets/69ad3e6b-ab93-41af-907d-308512086bde" />
 
 ### 2.6. Tạo giao diện front-end:
-html form gồm các file : index.html, fullname.js, fullname.css cả 3 file này đặt trong thư mục: D:\Apache24\fullname nhớ thay fullname là tên của bạn, viết liền, ko dấu, chữ thường, vd tên là Đỗ Duy Cốp thì fullname là doduycop khi đó 3 file sẽ là: index.html, doduycop.js và doduycop.css
-index.html và fullname.css: trang trí tuỳ ý, có dấu ấn cá nhân, có form nhập được thông tin.
-fullname.js: lấy dữ liệu trên form, gửi đến api nodered đã làm ở bước 2.5, nhận về json, dùng json trả về để tạo giao diện phù hợp với kết quả truy vấn của bạn.
+#### - Giao diện Front-end gồm các file : index.html, nguyenvanthu.js, nguyenvanthu.css cả 3 file này đặt trong thư mục: `E:\Apache24\nguyenvanthu` ####
+<img width="1915" height="1018" alt="Ảnh chụp màn hình 2025-10-26 190435" src="https://github.com/user-attachments/assets/c6b3d90d-d909-4467-9ea1-55a8d14959a8" />
+
+#### - Giao diện tìm kiếm sản phầm BDS ####
+<img width="1917" height="1017" alt="Ảnh chụp màn hình 2025-10-26 190217" src="https://github.com/user-attachments/assets/8e52e72b-289d-43ea-b620-fc9be32d31bd" />
+
+#### - Kết quả tìm kiếm BDS `Hồ Chí Minh` ####
+<img width="1915" height="1020" alt="Ảnh chụp màn hình 2025-10-26 190204" src="https://github.com/user-attachments/assets/7282cf74-1061-45d2-aca8-55959add955f" />
 
 ### 2.7. Nhận xét bài làm của mình:
-đã hiểu quá trình cài đặt các phần mềm và các thư viện như nào?
-đã hiểu cách sử dụng nodered để tạo api back-end như nào?
-đã hiểu cách frond-end tương tác với back-end ra sao?
+➡️➡️➡️ Qua quá trình thực hiện bài tập này, em đã hiểu rõ hơn về quy trình cài đặt, cấu hình và tích hợp các thành phần trong một hệ thống web hoàn chỉnh.
+
+#### - Về cài đặt phần mềm và thư viện: ####
++ Em đã nắm được cách cài đặt và cấu hình Node.js, Node-RED, SQL Server, Apache, cũng như cách thêm các thư viện mở rộng (node-red-contrib-mssql-plus, node-red-node-mysql, node-red-contrib-telegrambot, moment, v.v...) vào Node-RED.
++ Qua đó, em hiểu được vai trò của từng phần mềm trong hệ thống: Node-RED xử lý logic, SQL lưu dữ liệu, Apache hiển thị giao diện người dùng.
+
+#### - Về tạo API back-end bằng Node-RED: ####
++ Em đã biết cách sử dụng các node HTTP In, Function, MSSQL, và HTTP Response để xây dựng một API hoàn chỉnh.
++ Em hiểu cách xử lý tham số truy vấn từ client, gửi câu lệnh SQL đến cơ sở dữ liệu, và trả kết quả dạng JSON về cho phía front-end. Việc này giúp em hình dung rõ hơn cách một API hoạt động thực tế.
+
+#### - Về tương tác giữa front-end và back-end: ####
++ Em đã biết cách dùng JavaScript (fetch API) trên giao diện web để gửi yêu cầu đến Node-RED API, nhận dữ liệu JSON trả về và hiển thị kết quả lên giao diện.
++ Nhờ đó, em hiểu rõ mối liên hệ giữa giao diện người dùng (front-end) và xử lý dữ liệu phía máy chủ (back-end).
+
+#### 👉 Tự đánh giá: ####
+Bài làm giúp em củng cố kiến thức về mô hình client–server, API, cơ sở dữ liệu, và tích hợp hệ thống. Mặc dù còn một số bước cần tìm hiểu thêm về bảo mật và tối ưu, nhưng nhìn chung em đã hiểu được toàn bộ quy trình xây dựng một ứng dụng web hoàn chỉnh từ đầu đến cuối.
 
 # <p align="center">*--- THE END ---*</p>
